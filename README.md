@@ -1,4 +1,10 @@
-<table style="border:none">
+<style>
+td, th {
+   border: none!important;
+}
+</style>
+
+<table>
 	<tr><td><img src="https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png" width="70" height="60"></td><td> Easy to use router for http-services</td></tr>
 </table>
 	
