@@ -1,6 +1,4 @@
-<img src="https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png" width="80" height="70">
-
-# Easy to use router for http-services
+# Easy to use router for http-services <img src="https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png" width="80" height="70">
 
 
 ### Set routes and link them to functions
