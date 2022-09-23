@@ -1,24 +1,8 @@
-<style>
-table {
-    border-collapse: collapse;
-}
-table, th, td {
-   border: 1px solid black;
-}
-blockquote {
-    border-left: solid blue;
-    padding-left: 10px;
-}
-</style>
+<img src="https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png" width="70" height="60">
 
-<table>
-	<tr><td><img src="https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png" width="70" height="60"></td><td> Easy to use router for http-services</td></tr>
-</table>
+# Easy to use router for http-services
 
-| test | test |
-| --- | --- |
-| value | value |
-	
+
 ### Set routes and link them to functions
 
 ```go
