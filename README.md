@@ -1,4 +1,4 @@
-<img src="https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png" width="50" height="40">
+<img src="https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png" width="70" height="60">
 
 # Easy to use router for http-services
 
