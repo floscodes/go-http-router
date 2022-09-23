@@ -1,4 +1,4 @@
-<table><tr>
+<table border="0"><tr>
 <td><img src="https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png" width="70" height="60"></td><td><h1>Easy to use router for http-services</h1></td>
 </table>
 
