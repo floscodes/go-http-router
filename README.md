@@ -1,4 +1,5 @@
-# [![Go](https://img.shields.io/badge/--00ADD8?logo=go&logoColor=ffffff)](https://golang.org/) Easy to use router for http-services
+[![Go](https://img.shields.io/badge/--00ADD8?logo=go&logoColor=ffffff)](https://golang.org/)
+# Easy to use router for http-services
 
 
 ### Set routes and link them to functions
