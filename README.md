@@ -1,9 +1,7 @@
-<table><tr>
-<td><img src="https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png" width="70" height="60"></td><td><h1>Easy to use router for http-services</h1></td>
-	<td>
-	<h3>Set routes and link them to functions</h3>
-	</td>
-<br>
+# <img src="https://go.dev/blog/go-brand/Go-Logo/PNG/Go-Logo_Blue.png" width="70" height="60">Easy to use router for http-services
+	
+### Set routes and link them to functions
+
 ```go
 func main() {
 	router := router.New()
