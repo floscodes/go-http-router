@@ -66,6 +66,8 @@ router.Handle("/api", api).AllowCORS(true)
 
 **Whenever allowing CORS it is highly recommended to define the allowed methods, otherwise all methods will be accepted!**
 
+However, custom CORS heraders could be set by yourself at anytime in your handler functions.
+
 ```go
 router.Handle("/api", api).AllowCORS(true).Methods("GET")
 ```
