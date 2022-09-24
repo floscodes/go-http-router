@@ -1,5 +1,5 @@
-[![Go](https://img.shields.io/badge/--00ADD8?logo=go&logoColor=ffffff)](https://golang.org/)  [![Go Reference](https://pkg.go.dev/badge/github.com/floscodes/go-http-router.svg)](https://pkg.go.dev/github.com/floscodes/go-http-router)
-# Golang: Easy to use router for http-services 
+[![Go Reference](https://pkg.go.dev/badge/github.com/floscodes/go-http-router.svg)](https://pkg.go.dev/github.com/floscodes/go-http-router)
+# Easy to use router for http-services 
 
 ### Set routes and link them to functions
 
