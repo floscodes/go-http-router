@@ -1,6 +1,5 @@
 [![Go](https://img.shields.io/badge/--00ADD8?logo=go&logoColor=ffffff)](https://golang.org/)  [![Go Reference](https://pkg.go.dev/badge/github.com/floscodes/go-http-router.svg)](https://pkg.go.dev/github.com/floscodes/go-http-router)
-# Easy to use router for http-services
-
+# Golang: Easy to use router for http-services 
 
 ### Set routes and link them to functions
 
@@ -25,6 +24,11 @@ You can specify the allowed methods like this:
 router.Handle("/hello", hello).Methods("POST", "GET")
 ```
 
+Or set them for all configured paths:
+```go
+router.Methods("POST", "GET")
+```
+
 The router will accept trailing slashes typed by the client by default, even if none is set in the handling path.
 You can disable that this way for a certain route...
 ```go
@@ -46,4 +50,22 @@ If the request does not contain a specific filename, the router will automatical
 Optionally you can set a custom index file:
 ```
 router.ServeStatic("/static", "./static").IndexFile("template.html")
+```
+
+### Allow CORS
+
+You can just allow CORS like this:
+```go
+router.AllowCORS(true)
+```
+
+or for a single route.
+```go
+router.Handle("/api", api).AllowCORS(true)
+```
+
+**Whenever allowing CORS it is highly recommended to define the allowed methods, otherwise all methods will be accepted!**
+
+```go
+router.Handle("/api", api).AllowCORS(true).Methods("GET")
 ```

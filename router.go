@@ -2,21 +2,20 @@ package router
 
 import (
 	"net/http"
-	"strings"
 )
 
-type router struct {
-	routes []*routeConfig
+type Router struct {
+	routes []*RouteConfig
 }
 
 // Create a new Router
-func New() router {
-	return router{}
+func New() Router {
+	return Router{}
 }
 
 // Connect an URL-Path to a handler function.
-func (router *router) Handle(path string, handlerfn http.HandlerFunc) *routeConfig {
-	rc := routeConfig{
+func (router *Router) Handle(path string, handlerfn http.HandlerFunc) *RouteConfig {
+	rc := RouteConfig{
 		route:               path,
 		handlerfn:           handlerfn,
 		methods:             []string{},
@@ -25,14 +24,15 @@ func (router *router) Handle(path string, handlerfn http.HandlerFunc) *routeConf
 		serveStatic:         false,
 		staticPath:          "",
 		indexFile:           "",
+		allowCors:           false,
 	}
 	router.routes = append(router.routes, &rc)
 	return &rc
 }
 
 // Serve static files on the configured path
-func (router *router) ServeStatic(urlpath string, dirpath string) *routeConfig {
-	rc := routeConfig{
+func (router *Router) ServeStatic(urlpath string, dirpath string) *RouteConfig {
+	rc := RouteConfig{
 		route:               urlpath,
 		methods:             []string{},
 		acceptTrailingSlash: true,
@@ -40,47 +40,30 @@ func (router *router) ServeStatic(urlpath string, dirpath string) *routeConfig {
 		serveStatic:         true,
 		staticPath:          dirpath,
 		indexFile:           "",
+		allowCors:           false,
 	}
 	router.routes = append(router.routes, &rc)
 	return &rc
 }
 
 // Accept a trailing slash for all configured routes if client added one to the request even if you configured none in your path.
-func (router *router) AcceptTrailingSlash(b bool) {
+func (router *Router) AcceptTrailingSlash(b bool) {
 	for _, rt := range router.routes {
 		rt.acceptTrailingSlash = b
 	}
 }
 
 // Set allowed methods for all configured routes.
-func (router *router) Methods(methods ...string) {
+func (router *Router) Methods(methods ...string) {
 	for _, rt := range router.routes {
 		rt.methods = methods
 	}
 }
 
-func (router router) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+// Set headers to allow CORS requests for all configured routes. Default is false.
+func (router *Router) AllowCORS(b bool) {
 	for _, rt := range router.routes {
-
-		//check allowed methods
-		if !rt.checkMethods(r) {
-			forbidden(w, r)
-			return
-		}
-
-		//check if static serving is enabled
-		if rt.serveStatic {
-			staticServing(w, r, rt)
-			return
-		}
-
-		//check and handle trailing slash configs
-		rt.route = strings.TrimRight(rt.route, "/")
-		if rt.acceptTrailingSlash && rt.route+"/" == r.URL.Path {
-			rt.handlerfn(w, r)
-		} else if rt.route == r.URL.Path {
-			rt.handlerfn(w, r)
-		}
+		rt.allowCors = b
 	}
 }
 
