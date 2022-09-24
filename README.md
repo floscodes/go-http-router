@@ -48,7 +48,7 @@ router.ServeStatic("/static", "./static")
 If the request does not contain a specific filename, the router will automatically look for `index.html`.
 
 Optionally you can set a custom index file:
-```
+```go
 router.ServeStatic("/static", "./static").IndexFile("template.html")
 ```
 
