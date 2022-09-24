@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func (rt *RouteConfig) staticServing(w http.ResponseWriter, r *http.Request) {
+func staticServing(w http.ResponseWriter, r *http.Request, rt *RouteConfig) {
 	path := r.URL.Path[strings.Index(r.URL.Path, rt.route)+len(rt.route):]
 	path = strings.TrimLeft(path, "/")
 	path = "/" + path

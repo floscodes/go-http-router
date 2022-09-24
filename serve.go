@@ -26,7 +26,7 @@ func (router Router) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 			//check if static serving is enabled
 			if rt.serveStatic {
-				rt.staticServing(w, r)
+				staticServing(w, r, rt)
 				return
 			}
 
