@@ -1,7 +1,6 @@
 package router
 
 import (
-	"fmt"
 	"net/http"
 	"strings"
 )
@@ -13,7 +12,7 @@ func (router Router) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		//check of accept trailing-slash settings. By default the router will accept them even if none is set in the Handle-Path
 		rt.route = strings.TrimRight(rt.route, "/")
 		if rt.acceptTrailingSlash && rt.route+"/" == r.URL.Path || rt.route == r.URL.Path {
-			fmt.Println("requested")
+
 			// OTHER CHECKS
 
 			//check allowed methods
