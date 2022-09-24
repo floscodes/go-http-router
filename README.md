@@ -1,4 +1,4 @@
-[![Go](https://img.shields.io/badge/--00ADD8?logo=go&logoColor=ffffff)](https://golang.org/)
+[![Go](https://img.shields.io/badge/--00ADD8?logo=go&logoColor=ffffff)](https://golang.org/)  [![Go Reference](https://pkg.go.dev/badge/github.com/floscodes/go-http-router.svg)](https://pkg.go.dev/github.com/floscodes/go-http-router)
 # Easy to use router for http-services
 
 
