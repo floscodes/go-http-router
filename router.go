@@ -5,7 +5,8 @@ import (
 )
 
 type Router struct {
-	routes []*RouteConfig
+	routes       []*RouteConfig
+	staticRoutes []*StaticRouteConfig
 }
 
 // Create a new Router
@@ -18,28 +19,9 @@ func (router *Router) Handle(path string, handlerfn http.HandlerFunc) *RouteConf
 	rc := RouteConfig{
 		route:               path,
 		handlerfn:           handlerfn,
-		methods:             []string{},
+		methods:             httpMethods[:],
 		acceptTrailingSlash: true,
 		csrfProtect:         false,
-		serveStatic:         false,
-		staticPath:          "",
-		indexFile:           "",
-		allowCors:           false,
-	}
-	router.routes = append(router.routes, &rc)
-	return &rc
-}
-
-// Serve static files on the configured path
-func (router *Router) ServeStatic(urlpath string, dirpath string) *RouteConfig {
-	rc := RouteConfig{
-		route:               urlpath,
-		methods:             []string{},
-		acceptTrailingSlash: true,
-		csrfProtect:         false,
-		serveStatic:         true,
-		staticPath:          dirpath,
-		indexFile:           "",
 		allowCors:           false,
 	}
 	router.routes = append(router.routes, &rc)
@@ -67,6 +49,13 @@ func (router *Router) AllowCORS(b bool) {
 	}
 }
 
-func forbidden(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusForbidden)
+// Serve static files on the configured path
+func (router *Router) ServeStatic(urlpath string, dirpath string) *StaticRouteConfig {
+	rc := StaticRouteConfig{
+		route:     urlpath,
+		dirpath:   dirpath,
+		indexFile: "",
+	}
+	router.staticRoutes = append(router.staticRoutes, &rc)
+	return &rc
 }

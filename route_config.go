@@ -13,9 +13,6 @@ type RouteConfig struct {
 	methods             []string
 	acceptTrailingSlash bool
 	csrfProtect         bool
-	serveStatic         bool
-	staticPath          string
-	indexFile           string
 	allowCors           bool
 }
 
@@ -26,12 +23,7 @@ func (rc *RouteConfig) AcceptTrailingSlash(b bool) {
 
 // Set allowed methods for a single route.
 func (rc *RouteConfig) Methods(methods ...string) {
-	rc.methods = append(rc.methods, methods...)
-}
-
-// Set custom index file when serving static files.
-func (rc *RouteConfig) IndexFile(file string) {
-	rc.indexFile = file
+	rc.methods = methods
 }
 
 // Set headers to allow CORS requests for a single route. Default is false.
@@ -39,7 +31,7 @@ func (rc *RouteConfig) AllowCORS(b bool) {
 	rc.allowCors = b
 }
 
-// checking functions
+// checking functions - not public
 
 func (rt *RouteConfig) checkMethods(r *http.Request) bool {
 	if len(rt.methods) == 0 {
