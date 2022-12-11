@@ -21,7 +21,6 @@ func (router *Router) Handle(path string, handlerfn http.HandlerFunc) *RouteConf
 		handlerfn:           handlerfn,
 		methods:             httpMethods[:],
 		acceptTrailingSlash: true,
-		csrfProtect:         false,
 		allowCors:           false,
 	}
 	router.routes = append(router.routes, &rc)

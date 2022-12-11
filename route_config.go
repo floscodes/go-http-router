@@ -12,7 +12,6 @@ type RouteConfig struct {
 	handlerfn           http.HandlerFunc
 	methods             []string
 	acceptTrailingSlash bool
-	csrfProtect         bool
 	allowCors           bool
 }
 
