@@ -1,3 +1,3 @@
-module github.com/floscodes/go-http-router
+module github.com/floscodes/go-routex
 
 go 1.19

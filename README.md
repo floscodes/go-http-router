@@ -1,11 +1,11 @@
-[![Go Reference](https://pkg.go.dev/badge/github.com/floscodes/go-http-router.svg)](https://pkg.go.dev/github.com/floscodes/go-http-router)
-# Easy to use router for http-services 
+
+# routex is an easy to use router for http-services 
 
 ### Set routes and link them to functions
 
 ```go
 func main() {
-	router := router.New()
+	router := routex.New()
 
 	router.Handle("/hello", hello)
 

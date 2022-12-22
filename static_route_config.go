@@ -1,4 +1,4 @@
-package router
+package routex
 
 type StaticRouteConfig struct {
 	route     string
